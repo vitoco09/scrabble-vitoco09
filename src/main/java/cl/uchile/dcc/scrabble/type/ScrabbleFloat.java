@@ -1,21 +1,37 @@
 package cl.uchile.dcc.scrabble.type;
 
-public class ScrabbleFloat extends AbstractType {
+import java.util.Objects;
 
-    private float value;
+public class ScrabbleFloat extends AbstractType implements INumber {
 
-    public ScrabbleFloat(float f) {
+    private double value;
+
+    public ScrabbleFloat(double f) {
         this.value = f;
     }
 
-    public float getValue() { return value; }
+    public double getValue() { return value; }
 
     @Override
     public String toString() {
         return String.valueOf(this.getValue());
     }
 
-    public ScrabbleFloat toFloat() {
+    @Override
+    public int hashCode() {
+        return Objects.hash(ScrabbleFloat.class, value);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof ScrabbleFloat) {
+            var o = (ScrabbleFloat) obj;
+            return this.getValue() == o.getValue();
+        }
+        return false;
+    }
+
+    public ScrabbleFloat toScrabbleFloat() {
         return new ScrabbleFloat(this.getValue());
     }
 

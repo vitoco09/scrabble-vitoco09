@@ -1,5 +1,7 @@
 package cl.uchile.dcc.scrabble.type;
 
+import java.util.Objects;
+
 public class ScrabbleBool extends AbstractType {
 
     private boolean value;
@@ -15,7 +17,21 @@ public class ScrabbleBool extends AbstractType {
         return String.valueOf(this.getValue());
     }
 
-    public ScrabbleBool toBool() {
+    @Override
+    public int hashCode() {
+        return Objects.hash(ScrabbleBool.class, value);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof ScrabbleBool) {
+            var o = (ScrabbleBool) obj;
+            return this.getValue() == o.getValue();
+        }
+        return false;
+    }
+
+    public ScrabbleBool toScrabbleBool() {
         return new ScrabbleBool(this.getValue());
     }
 
