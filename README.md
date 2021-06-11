@@ -71,6 +71,8 @@ Another exception is when a **ScrabbleBool** is operated with a **ScrabbleBinary
 
 The **ScrabbleBinary** to **ScrabbleFloat** operation was accidentally implemented, but since it complements the other operations it was decided to leave it there. Is's implementation uses the Double (IEEE754 Double precision 64-bit) notation for the binaries, making these special binaries different from the ones used for representing a *signed int* (two's component), which is something that must be avoided when trying to operate two binaries.
 
+The negation operation was implemented to every *Scrabble* type. For all **ScrabbleNumber** the negation is the additive inverse of the number and for all **ScrabbleBool** the negation is simply the logical negation (!true = false, !false = true).  For **ScrabbleString** it makes no sense to negate a string, so by default the negation returns a clone of the **ScrabbleString**.
+
 ## **Class Hierarchy**
 
 The UML diagram is detailed below.
