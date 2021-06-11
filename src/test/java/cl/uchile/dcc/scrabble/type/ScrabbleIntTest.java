@@ -6,6 +6,10 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
+/**
+ * Testing for ScrabbleInt class
+ * @author Victor Vidal Paz
+ */
 public class ScrabbleIntTest {
 
     private ScrabbleInt sInt1, sInt2;
@@ -13,6 +17,8 @@ public class ScrabbleIntTest {
     private static final int VALUE_2 = -727;
     private static final String BINARY_1 = "1111111111111111111111111111111111111111111111111111110100101001";
     private static final String BINARY_2 = "1111111111111111111111111111111111111111111111111111111001011100";
+    private static final String BINARY_3 = "0000000000000000000000000000000000000000000000000000000000001100";
+    private static final String BINARY_4 = "1111111111111111111111111111111111111111111111111111001011111011";
 
     @BeforeEach
     void setUp() {
@@ -68,5 +74,71 @@ public class ScrabbleIntTest {
     void toStringTest() {
         String expected = Integer.toString(VALUE_1);
         assertEquals(expected, sInt1.toString(), "toString error");
+    }
+
+    @Test
+    void negateTest() {
+        var expected = new ScrabbleInt(420);
+        assertEquals(expected, sInt1.negate(), "negateTest error");
+    }
+
+    @Test
+    void addTest() {
+        var expectedInt1 = new ScrabbleInt(VALUE_1 + VALUE_2);
+        assertEquals(expectedInt1, sInt1.add(sInt2));
+
+        var expectedFloat = new ScrabbleFloat(VALUE_1 + 32.526);
+        assertEquals(expectedFloat, sInt1.add(new ScrabbleFloat(32.526)));
+
+        var expectedInt2 = new ScrabbleInt(VALUE_1 + 12);
+        assertEquals(expectedInt2, sInt1.add(new ScrabbleBinary(BINARY_3)), "add Error: error when adding a binary");
+
+        var expectedInt3 = new ScrabbleInt(VALUE_2 + (-3333));
+        assertEquals(expectedInt3, sInt2.add(new ScrabbleBinary(BINARY_4)), "add Error: error when adding a binary");
+    }
+
+    @Test
+    void subtractTest() {
+        var expectedInt1 = new ScrabbleInt(VALUE_1 - VALUE_2);
+        assertEquals(expectedInt1, sInt1.subtract(sInt2));
+
+        var expectedFloat = new ScrabbleFloat(VALUE_1 - 32.526);
+        assertEquals(expectedFloat, sInt1.subtract(new ScrabbleFloat(32.526)));
+
+        var expectedInt2 = new ScrabbleInt(VALUE_1 - 12);
+        assertEquals(expectedInt2, sInt1.subtract(new ScrabbleBinary(BINARY_3)), "subtract Error: error when subtracting a binary");
+
+        var expectedInt3 = new ScrabbleInt(VALUE_2 - (-3333));
+        assertEquals(expectedInt3, sInt2.subtract(new ScrabbleBinary(BINARY_4)), "subtract Error: error when subtracting a binary");
+    }
+
+    @Test
+    void multiplyTest() {
+        var expectedInt1 = new ScrabbleInt(VALUE_1 * VALUE_2);
+        assertEquals(expectedInt1, sInt1.multiply(sInt2));
+
+        var expectedFloat = new ScrabbleFloat(VALUE_1 * 32.526);
+        assertEquals(expectedFloat, sInt1.multiply(new ScrabbleFloat(32.526)));
+
+        var expectedInt2 = new ScrabbleInt(VALUE_1 * 12);
+        assertEquals(expectedInt2, sInt1.multiply(new ScrabbleBinary(BINARY_3)), "multiply Error: error when multiplying a binary");
+
+        var expectedInt3 = new ScrabbleInt(VALUE_2 * (-3333));
+        assertEquals(expectedInt3, sInt2.multiply(new ScrabbleBinary(BINARY_4)), "multiply Error: error when multiplying a binary");
+    }
+
+    @Test
+    void divideTest() {
+        var expectedInt1 = new ScrabbleInt(VALUE_1 / VALUE_2);
+        assertEquals(expectedInt1, sInt1.divide(sInt2));
+
+        var expectedFloat = new ScrabbleFloat(VALUE_1 / 32.526);
+        assertEquals(expectedFloat, sInt1.divide(new ScrabbleFloat(32.526)));
+
+        var expectedInt2 = new ScrabbleInt(VALUE_1 / 12);
+        assertEquals(expectedInt2, sInt1.divide(new ScrabbleBinary(BINARY_3)), "divide Error: error when dividing a binary");
+
+        var expectedInt3 = new ScrabbleInt(VALUE_2 / (-3333));
+        assertEquals(expectedInt3, sInt2.divide(new ScrabbleBinary(BINARY_4)), "divide Error: error when dividing a binary");
     }
 }
