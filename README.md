@@ -72,3 +72,21 @@ Another exception is when a **ScrabbleBool** is operated with a **ScrabbleBinary
 The **ScrabbleBinary** to **ScrabbleFloat** operation was accidentally implemented, but since it complements the other operations it was decided to leave it there. Is's implementation uses the Double (IEEE754 Double precision 64-bit) notation for the binaries, making these special binaries different from the ones used for representing a *signed int* (two's component), which is something that must be avoided when trying to operate two binaries.
 
 ## **Class Hierarchy**
+
+The UML diagram is detailed below.
+![UML Diagram](uml_diagram.png)
+
+The five main classes of types inherit from an abstract class named **AbstractType**, which implements the interface **IType** containing the most basic methods for every *Scrabble* type. Then for the logical types is an interface called **ILogical**, and for the numeral types there's another interface called **INumber**. The main utilities for both of these specific interfaces is to implement the operations needed for both kind of types.
+
+A very collapsed description of the five *ScrabbleType* is:
+
+```java
+public abstract class AbstractType implements IType {...}
+public class ScrabbleString extends AbstractType {...}
+public class ScrabbleBool extends AbstractType implements ILogical {...}
+public class ScrabbleFloat extends AbstractType implements INumber {...}
+public class ScrabbleInt extends AbstractType implements INumber {...}
+public class ScrabbleBinary extends AbstractType implements INumber, ILogical {...}
+```
+
+With this, there can be a double dispatch in the **INumber** operations, making it easier to describe the operations but also harder to read the code since for every numeral type it was needed to implement twelve methods.
