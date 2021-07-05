@@ -145,3 +145,5 @@ The class hierarchy is listed below.
 The usage of these classes reside in a static method called ```getScrabbleType(NativeType value)```, which emulates the process of creating or reusing the Scrabble Types and replaces the usual ```new ScrabbleType(value)```.
 
 ## **Class Hierarchy**
+
+![Class Hierarchy](https://github.com/CC3002-Metodologias/scrabble-vitoco09/blob/tarea2/UMLtarea2.png?raw=true)
