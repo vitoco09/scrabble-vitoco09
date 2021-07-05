@@ -3,8 +3,8 @@ package cl.uchile.dcc.scrabble.type;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 /**
  * Testing for ScrabbleBinary class.
@@ -175,5 +175,14 @@ public class ScrabbleBinaryTest {
         var expectedBinary3 = new ScrabbleBinary(divideX);
         assertEquals(expectedBinary3, sBinaryFloat1.divide(new ScrabbleFloat(DOUBLE_2)));
 
+    }
+
+    /**
+     * Tests of null methods for coverage, it's assumed that a null return should not be possible.
+     */
+    @Test
+    void nullTest() {
+        assertNull(sBinaryInt2.toScrabbleBool());
+        assertNull(sBinaryInt2.addToString(new ScrabbleString("Hello World")));
     }
 }

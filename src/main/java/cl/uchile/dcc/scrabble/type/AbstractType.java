@@ -1,5 +1,7 @@
 package cl.uchile.dcc.scrabble.type;
 
+import java.util.UUID;
+
 /**
  * Implementation of a Scrabble type as an abstract class.
  * @author Victor Vidal Paz
@@ -23,13 +25,6 @@ public abstract class AbstractType implements IType {
     }
 
     /**
-     * negate: Method for negating the value of a Scrabble type.
-     * @return IType with the negated value.
-     */
-    @Override
-    public abstract IType negate();
-
-    /**
      * binaryToInt: Auxiliary method for transforming a Scrabble binary to Java int.
      * @param scrabbleBinary ScrabbleBinary to transform. It must be in two's component notation.
      * @return int being the result of the transformation of the "int" binary.
@@ -44,4 +39,13 @@ public abstract class AbstractType implements IType {
         return isPositive ? num : -num;
     }
 
+    /**
+     * getResult: Method that returns the result of an abstract syntax tree (AST)
+     *
+     * @return IType being the result of the operation(s).
+     */
+    @Override
+    public IType getResult() {
+        return this;
+    }
 }
