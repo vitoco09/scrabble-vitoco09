@@ -3,8 +3,7 @@ package cl.uchile.dcc.scrabble.type;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * Testing for ScrabbleInt class
@@ -140,5 +139,16 @@ public class ScrabbleIntTest {
 
         var expectedInt3 = new ScrabbleInt(VALUE_2 / (-3333));
         assertEquals(expectedInt3, sInt2.divide(new ScrabbleBinary(BINARY_4)), "divide Error: error when dividing a binary");
+    }
+
+    /**
+     * Tests of null methods for coverage, it's assumed that a null return should not be possible.
+     */
+    @Test
+    void nullTest() {
+        assertNull(sInt1.addToString(sInt2));
+        assertNull(sInt1.and(sInt2));
+        assertNull(sInt1.or(sInt2));
+        assertNull(sInt1.toScrabbleBool());
     }
 }

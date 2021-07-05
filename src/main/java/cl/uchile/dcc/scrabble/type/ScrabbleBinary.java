@@ -16,7 +16,7 @@ import java.util.Objects;
  *
  * @author Victor Vidal Paz
  */
-public class ScrabbleBinary extends AbstractType implements INumber, ILogical {
+public class ScrabbleBinary extends AbstractType {
 
     private final String value;
 
@@ -42,6 +42,11 @@ public class ScrabbleBinary extends AbstractType implements INumber, ILogical {
     @Override
     public String toString() {
         return this.getValue();
+    }
+
+    @Override
+    public ScrabbleString addToString(IType sType) {
+        return null;
     }
 
     /**
@@ -89,6 +94,16 @@ public class ScrabbleBinary extends AbstractType implements INumber, ILogical {
         // Double (IEEE754 Double precision 64-bit) format used for transformations between binary and float.
         double toDouble = Double.longBitsToDouble(new BigInteger(this.getValue(), 2).longValue());
         return new ScrabbleFloat(toDouble);
+    }
+
+    /**
+     * toScrabbleBool: Method for transforming a Scrabble boolean type to a ScrabbleBool
+     *
+     * @return ScrabbleBool being the result of the transformation.
+     */
+    @Override
+    public ScrabbleBool toScrabbleBool() {
+        return null;
     }
 
     /**
@@ -168,7 +183,7 @@ public class ScrabbleBinary extends AbstractType implements INumber, ILogical {
      * @return ILogical being the result of the conjunction. In this case is always a ScrabbleBinary.
      */
     @Override
-    public ILogical and(ILogical sLogical) {
+    public IType and(IType sLogical) {
         String left = this.toString(), right = sLogical.toString();
         if (right.length() == 1) {
             if (right.equals("1")) {
@@ -194,7 +209,7 @@ public class ScrabbleBinary extends AbstractType implements INumber, ILogical {
      * @return ILogical being the result of the disjunction.
      */
     @Override
-    public ILogical or(ILogical sLogical) {
+    public IType or(IType sLogical) {
         String left = this.toString(), right = sLogical.toString();
         if (right.length() == 1) {
             if (right.equals("1")) {
@@ -217,50 +232,50 @@ public class ScrabbleBinary extends AbstractType implements INumber, ILogical {
     /**
      * add: Method for adding two Scrabble numerals.
      * @param sNumber ScrabbleNumber added to the right.
-     * @return INumber being the result of the addition. In this case is always a ScrabbleBinary.
+     * @return IType being the result of the addition. In this case is always a ScrabbleBinary.
      */
     @Override
-    public INumber add(INumber sNumber) {
+    public IType add(IType sNumber) {
         return sNumber.binaryPlus(this);
     }
 
     /**
      * subtract: Method for subtracting two Scrabble numerals.
      * @param sNumber ScrabbleNumber subtracted to the right.
-     * @return INumber being the result of the subtraction. In this case is always a ScrabbleBinary.
+     * @return IType being the result of the subtraction. In this case is always a ScrabbleBinary.
      */
     @Override
-    public INumber subtract(INumber sNumber) {
+    public IType subtract(IType sNumber) {
         return sNumber.binaryMinus(this);
     }
 
     /**
      * multiply: Method for multiplying two Scrabble numerals.
      * @param sNumber ScrabbleNumber multiplied to the right.
-     * @return INumber being the result of the multiplication. In this case is always a ScrabbleBinary.
+     * @return IType being the result of the multiplication. In this case is always a ScrabbleBinary.
      */
     @Override
-    public INumber multiply(INumber sNumber) {
+    public IType multiply(IType sNumber) {
         return sNumber.binaryTimes(this);
     }
 
     /**
      * divide: Method for dividing two Scrabble Numerals.
      * @param sNumber ScrabbleNumber divided to the right. Its value mustn't be zero.
-     * @return INumber being the result of the division. In this case is always a ScrabbleBinary.
+     * @return IType being the result of the division. In this case is always a ScrabbleBinary.
      */
     @Override
-    public INumber divide(INumber sNumber) {
+    public IType divide(IType sNumber) {
         return sNumber.binaryDividedBy(this);
     }
 
     /**
      * intPlus: Method that adds a Scrabble int with a Scrabble numeral.
      * @param sInt ScrabbleInt being operated on the left.
-     * @return INumber being the result of the addition. Its priority is trying to be a ScrabbleInt.
+     * @return IType being the result of the addition. Its priority is trying to be a ScrabbleInt.
      */
     @Override
-    public INumber intPlus(ScrabbleInt sInt) {
+    public IType intPlus(ScrabbleInt sInt) {
         int num = binaryToInt(this);
         int ans = sInt.getValue() + num;
         return new ScrabbleInt(ans);
@@ -269,10 +284,10 @@ public class ScrabbleBinary extends AbstractType implements INumber, ILogical {
     /**
      * intMinus: Method that subtracts a Scrabble int with a Scrabble numeral.
      * @param sInt ScrabbleInt being operated on the left.
-     * @return INumber being the result of the subtraction. Its priority is trying to be a ScrabbleInt.
+     * @return IType being the result of the subtraction. Its priority is trying to be a ScrabbleInt.
      */
     @Override
-    public INumber intMinus(ScrabbleInt sInt) {
+    public IType intMinus(ScrabbleInt sInt) {
         int num = binaryToInt(this);
         int ans = sInt.getValue() - num;
         return new ScrabbleInt(ans);
@@ -281,10 +296,10 @@ public class ScrabbleBinary extends AbstractType implements INumber, ILogical {
     /**
      * intTimes: Method that multiplies a Scrabble int with a Scrabble numeral.
      * @param sInt ScrabbleInt being operated on the left.
-     * @return INumber being the result of the multiplication. Its priority is trying to be a ScrabbleInt.
+     * @return IType being the result of the multiplication. Its priority is trying to be a ScrabbleInt.
      */
     @Override
-    public INumber intTimes(ScrabbleInt sInt) {
+    public IType intTimes(ScrabbleInt sInt) {
         int num = binaryToInt(this);
         int ans = sInt.getValue() * num;
         return new ScrabbleInt(ans);
@@ -294,10 +309,10 @@ public class ScrabbleBinary extends AbstractType implements INumber, ILogical {
      * intDividedBy: Method that divides a Scrabble int with a Scrabble numeral. The value of the ScrabbleNumber
      * mustn't be zero.
      * @param sInt ScrabbleInt being operated on the left.
-     * @return INumber being the result of the division. Its priority is to be a ScrabbleInt.
+     * @return IType being the result of the division. Its priority is to be a ScrabbleInt.
      */
     @Override
-    public INumber intDividedBy(ScrabbleInt sInt) {
+    public IType intDividedBy(ScrabbleInt sInt) {
         if (!this.getValue().equals("0".repeat(64))) {
             int num = binaryToInt(this);
             int ans = sInt.getValue() / num;

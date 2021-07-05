@@ -3,8 +3,8 @@ package cl.uchile.dcc.scrabble.type;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 /**
  * Testing for ScrabbleBool class.
@@ -86,4 +86,30 @@ public class ScrabbleBoolTest {
         assertEquals(expected, sBoolTrue.negate(), "negateTest error");
     }
 
+    /**
+     * Tests of null methods for coverage, it's assumed that a null return should not be possible.
+     */
+    @Test
+    void nullTest() {
+        assertNull(sBoolTrue.toScrabbleInt());
+        assertNull(sBoolTrue.toScrabbleFloat());
+        assertNull(sBoolTrue.toScrabbleBinary());
+        assertNull(sBoolTrue.add(sBoolFalse));
+        assertNull(sBoolTrue.subtract(sBoolFalse));
+        assertNull(sBoolTrue.multiply(sBoolFalse));
+        assertNull(sBoolTrue.divide(sBoolFalse));
+        assertNull(sBoolTrue.intPlus(new ScrabbleInt(5)));
+        assertNull(sBoolTrue.intMinus(new ScrabbleInt(5)));
+        assertNull(sBoolTrue.intTimes(new ScrabbleInt(5)));
+        assertNull(sBoolTrue.intDividedBy(new ScrabbleInt(5)));
+        assertNull(sBoolTrue.floatPlus(new ScrabbleFloat(2.78d)));
+        assertNull(sBoolTrue.floatMinus(new ScrabbleFloat(2.78d)));
+        assertNull(sBoolTrue.floatTimes(new ScrabbleFloat(2.78d)));
+        assertNull(sBoolTrue.floatDividedBy(new ScrabbleFloat(2.78d)));
+        assertNull(sBoolTrue.binaryPlus(new ScrabbleBinary(binary)));
+        assertNull(sBoolTrue.binaryMinus(new ScrabbleBinary(binary)));
+        assertNull(sBoolTrue.binaryTimes(new ScrabbleBinary(binary)));
+        assertNull(sBoolTrue.binaryDividedBy(new ScrabbleBinary(binary)));
+        assertNull(sBoolTrue.addToString(new ScrabbleString("Hello World")));
+    }
 }

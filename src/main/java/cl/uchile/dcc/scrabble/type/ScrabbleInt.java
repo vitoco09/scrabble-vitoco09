@@ -1,12 +1,13 @@
 package cl.uchile.dcc.scrabble.type;
 
+import java.math.BigInteger;
 import java.util.Objects;
 
 /**
  * Implementation of a Scrabble int as a class.
  * @author Victor Vidal Paz
  */
-public class ScrabbleInt extends AbstractType implements INumber {
+public class ScrabbleInt extends AbstractType {
 
     private final int value;
 
@@ -33,6 +34,11 @@ public class ScrabbleInt extends AbstractType implements INumber {
         return String.valueOf(this.getValue());
     }
 
+    @Override
+    public ScrabbleString addToString(IType sType) {
+        return null;
+    }
+
     /**
      * negate: Method for negating the value of a Scrabble type.
      * @return IType with the negated value. In this case the int value is negated.
@@ -40,6 +46,28 @@ public class ScrabbleInt extends AbstractType implements INumber {
     @Override
     public IType negate() {
         return new ScrabbleInt(-this.getValue());
+    }
+
+    /**
+     * and: Logical conjunction operator between two Scrabble logical types.
+     *
+     * @param sLogical ScrabbleLogical type to operate on the right side.
+     * @return IType being the result of the conjunction.
+     */
+    @Override
+    public IType and(IType sLogical) {
+        return null;
+    }
+
+    /**
+     * or: Logical disjunction operator between two Scrabble logical types.
+     *
+     * @param sLogical ScrabbleLogical type to operate on the right side.
+     * @return IType being the result of the disjunction.
+     */
+    @Override
+    public IType or(IType sLogical) {
+        return null;
     }
 
     /**
@@ -69,14 +97,26 @@ public class ScrabbleInt extends AbstractType implements INumber {
      * toScrabbleFloat: Method for transforming a Scrabble numeral type to a Scrabble Float
      * @return ScrabbleFloat being the result of the transformation.
      */
+    @Override
     public ScrabbleFloat toScrabbleFloat() {
         return new ScrabbleFloat(Double.parseDouble(this.toString()));
+    }
+
+    /**
+     * toScrabbleBool: Method for transforming a Scrabble boolean type to a ScrabbleBool
+     *
+     * @return ScrabbleBool being the result of the transformation.
+     */
+    @Override
+    public ScrabbleBool toScrabbleBool() {
+        return null;
     }
 
     /**
      * toScrabbleInt: Method for transforming a Scrabble int to a Scrabble int. Useful for making copies.
      * @return ScrabbleInt being the copy of this object.
      */
+    @Override
     public ScrabbleInt toScrabbleInt() {
         return new ScrabbleInt(this.getValue());
     }
@@ -126,76 +166,76 @@ public class ScrabbleInt extends AbstractType implements INumber {
      */
     private String positiveIntToBinary(int num) {
         String ans = Integer.toBinaryString(num);
-        return String.format("%064d", Integer.parseInt(ans));
+        return "0".repeat(64-ans.length()) + ans;
     }
 
     /**
      * add: Method for adding two Scrabble numerals.
      * @param sNumber ScrabbleNumber added to the right.
-     * @return INumber being the result of the addition. It can be a ScrabbleInt or a ScrabbleFloat.
+     * @return IType being the result of the addition. It can be a ScrabbleInt or a ScrabbleFloat.
      */
     @Override
-    public INumber add(INumber sNumber) {
+    public IType add(IType sNumber) {
         return sNumber.intPlus(this);
     }
 
     /**
      * subtract: Method for subtracting two Scrabble numerals.
      * @param sNumber ScrabbleNumber subtracted to the right.
-     * @return INumber being the result of the subtraction. It can be a ScrabbleInt or a ScrabbleFloat.
+     * @return IType being the result of the subtraction. It can be a ScrabbleInt or a ScrabbleFloat.
      */
     @Override
-    public INumber subtract(INumber sNumber) {
+    public IType subtract(IType sNumber) {
         return sNumber.intMinus(this);
     }
 
     /**
      * multiply: Method for multiplying two Scrabble numerals.
      * @param sNumber ScrabbleNumber multiplied to the right.
-     * @return INumber being the result of the multiplication. It can be a ScrabbleInt or a ScrabbleFloat.
+     * @return IType being the result of the multiplication. It can be a ScrabbleInt or a ScrabbleFloat.
      */
     @Override
-    public INumber multiply(INumber sNumber) {
+    public IType multiply(IType sNumber) {
         return sNumber.intTimes(this);
     }
 
     /**
      * divide: Method for dividing two Scrabble Numerals.
      * @param sNumber ScrabbleNumber divided to the right. Its value mustn't be zero.
-     * @return INumber being the result of the division. It can be a ScrabbleInt or a ScrabbleFloat.
+     * @return IType being the result of the division. It can be a ScrabbleInt or a ScrabbleFloat.
      */
     @Override
-    public INumber divide(INumber sNumber) {
+    public IType divide(IType sNumber) {
         return sNumber.intDividedBy(this);
     }
 
     /**
      * intPlus: Method that adds a Scrabble int with a Scrabble numeral.
      * @param sInt ScrabbleInt being operated on the left.
-     * @return INumber being the result of the addition. Its priority is trying to be a ScrabbleInt.
+     * @return IType being the result of the addition. Its priority is trying to be a ScrabbleInt.
      */
     @Override
-    public INumber intPlus(ScrabbleInt sInt) {
+    public IType intPlus(ScrabbleInt sInt) {
         return new ScrabbleInt(sInt.getValue() + this.getValue());
     }
 
     /**
      * intMinus: Method that subtracts a Scrabble int with a Scrabble numeral.
      * @param sInt ScrabbleInt being operated on the left.
-     * @return INumber being the result of the subtraction. Its priority is trying to be a ScrabbleInt.
+     * @return IType being the result of the subtraction. Its priority is trying to be a ScrabbleInt.
      */
     @Override
-    public INumber intMinus(ScrabbleInt sInt) {
+    public IType intMinus(ScrabbleInt sInt) {
         return new ScrabbleInt(sInt.getValue() - this.getValue());
     }
 
     /**
      * intTimes: Method that multiplies a Scrabble int with a Scrabble numeral.
      * @param sInt ScrabbleInt being operated on the left.
-     * @return INumber being the result of the multiplication. Its priority is trying to be a ScrabbleInt.
+     * @return IType being the result of the multiplication. Its priority is trying to be a ScrabbleInt.
      */
     @Override
-    public INumber intTimes(ScrabbleInt sInt) {
+    public IType intTimes(ScrabbleInt sInt) {
         return new ScrabbleInt(sInt.getValue() * this.getValue());
     }
 
@@ -203,10 +243,10 @@ public class ScrabbleInt extends AbstractType implements INumber {
      * intDividedBy: Method that divides a Scrabble int with a Scrabble numeral. The value of the ScrabbleNumber
      * mustn't be zero.
      * @param sInt ScrabbleInt being operated on the left.
-     * @return INumber being the result of the division. Its priority is to be a ScrabbleInt.
+     * @return IType being the result of the division. Its priority is to be a ScrabbleInt.
      */
     @Override
-    public INumber intDividedBy(ScrabbleInt sInt) {
+    public IType intDividedBy(ScrabbleInt sInt) {
         if (this.getValue() != 0) {
             return new ScrabbleInt(sInt.getValue() / this.getValue());
         }

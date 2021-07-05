@@ -3,8 +3,8 @@ package cl.uchile.dcc.scrabble.type;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 /**
  * Testing for ScrabbleFloat class.
@@ -116,10 +116,22 @@ public class ScrabbleFloatTest {
         assertEquals(expectedFloat2, sFloat1.divide(new ScrabbleInt(69)));
 
         var expectedFloat3 = new ScrabbleFloat(VALUE_1 / 12.0);
-        assertEquals(expectedFloat3, sFloat1.divide(new ScrabbleBinary(BINARY_1)), "divide error: error when divideing a binary");
+        assertEquals(expectedFloat3, sFloat1.divide(new ScrabbleBinary(BINARY_1)), "divide error: error when dividing a binary");
 
         var expectedFloat4 = new ScrabbleFloat(VALUE_2 / (-3333.0));
-        assertEquals(expectedFloat4, sFloat2.divide(new ScrabbleBinary(BINARY_2)), "divide error: error when divideing a binary");
+        assertEquals(expectedFloat4, sFloat2.divide(new ScrabbleBinary(BINARY_2)), "divide error: error when dividing a binary");
     }
 
+    /**
+     * Tests of null methods for coverage, it's assumed that a null return should not be possible.
+     */
+    @Test
+    void nullTest() {
+        assertNull(sFloat1.toScrabbleInt());
+        assertNull(sFloat1.and(sFloat2));
+        assertNull(sFloat1.or(sFloat2));
+        assertNull(sFloat1.toScrabbleBool());
+        assertNull(sFloat1.toScrabbleBinary());
+        assertNull(sFloat1.addToString(new ScrabbleString("Hello World")));
+    }
 }

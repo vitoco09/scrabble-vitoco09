@@ -5,16 +5,15 @@ import cl.uchile.dcc.scrabble.type.IType;
 import java.util.HashMap;
 import java.util.Map;
 
-public abstract class ITypeFactory {
+/**
+ * Implementation of an abstract factory of Scrabble Types using a flyweight design for saving RAM.
+ * Key has the format "TYPE keyValue" for testing purposes.
+ */
+public abstract class AbstractTypeFactory {
 
+    /**
+     * HashMap saving all allocated variables.
+     */
     static Map<String, IType> scrabbleTypes = new HashMap<>();
-
-    public static IType getScrabbleType(String name) {
-        IType result = scrabbleTypes.get(name);
-        if (result == null) {
-            
-        }
-        return result;
-    }
 
 }

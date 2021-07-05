@@ -7,7 +7,7 @@ import java.util.ArrayList;
 /**
  * Implementation of an abstract ScrabbleType Tree, which can emulate defined operations like sums and transformations.
  */
-public abstract class ScrabbleTypeTree implements Component {
+public abstract class AbstractTypeTree implements Component {
 
     protected IType ans;
 
