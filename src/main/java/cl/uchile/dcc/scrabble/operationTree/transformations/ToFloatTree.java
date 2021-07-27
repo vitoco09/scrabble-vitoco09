@@ -19,4 +19,12 @@ public class ToFloatTree extends AbstractTypeTree {
         this.setResult(component.getResult().toScrabbleFloat());
     }
 
+    /**
+     * pseudoCodeString: Method for printing pseudo-code for a tree.
+     * @return
+     */
+    @Override
+    public String pseudoCodeString() {
+        return "ToFloat(" + component.pseudoCodeString() + ")";
+    }
 }

@@ -27,4 +27,5 @@ public abstract class AbstractTypeTree implements Component {
     public void setResult(IType result) {
         ans = result;
     }
+
 }

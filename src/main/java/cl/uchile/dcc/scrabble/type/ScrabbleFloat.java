@@ -316,4 +316,11 @@ public class ScrabbleFloat extends AbstractType {
         return null;    // Can't divide by zero.
     }
 
+    /**
+     * pseudoCodeString: Method for printing pseudo-code for a tree.
+     */
+    @Override
+    public String pseudoCodeString() {
+        return "new Float(" + value + ")";
+    }
 }

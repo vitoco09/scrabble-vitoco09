@@ -19,4 +19,12 @@ public class ToBoolTree extends AbstractTypeTree {
         this.setResult(component.getResult().toScrabbleBool());
     }
 
+    /**
+     * pseudoCodeString: Method for printing pseudo-code for a tree.
+     * @return
+     */
+    @Override
+    public String pseudoCodeString() {
+        return "ToBool(" + component.pseudoCodeString() + ")";
+    }
 }

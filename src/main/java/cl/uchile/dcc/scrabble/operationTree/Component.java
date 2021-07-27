@@ -14,4 +14,9 @@ public interface Component {
      */
     IType getResult();
 
+    /**
+     * pseudoCodeString: Method for printing pseudo-code for a tree.
+     */
+    String pseudoCodeString();
+
 }

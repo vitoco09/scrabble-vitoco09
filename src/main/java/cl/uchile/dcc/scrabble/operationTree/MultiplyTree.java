@@ -17,4 +17,13 @@ public class MultiplyTree extends AbstractTypeTree {
         this.right = right;
         this.setResult(left.getResult().multiply(right.getResult()));
     }
+
+    /**
+     * pseudoCodeString: Method for printing pseudo-code for a tree.
+     * @return
+     */
+    @Override
+    public String pseudoCodeString() {
+        return "Multiply(" + left.pseudoCodeString() + ", " + right.pseudoCodeString() + ")";
+    }
 }

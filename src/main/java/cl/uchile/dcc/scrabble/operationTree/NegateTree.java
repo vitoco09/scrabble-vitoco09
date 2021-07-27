@@ -16,4 +16,13 @@ public class NegateTree extends AbstractTypeTree {
         this.component = component;
         this.setResult(component.getResult().negate());
     }
+
+    /**
+     * pseudoCodeString: Method for printing pseudo-code for a tree.
+     * @return
+     */
+    @Override
+    public String pseudoCodeString() {
+        return "Negate(" + component.pseudoCodeString() + ")";
+    }
 }

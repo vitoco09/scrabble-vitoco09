@@ -17,4 +17,13 @@ public class DivideTree extends AbstractTypeTree {
         this.right = right;
         this.setResult(left.getResult().divide(right.getResult()));
     }
+
+    /**
+     * pseudoCodeString: Method for printing pseudo-code for a tree.
+     * @return
+     */
+    @Override
+    public String pseudoCodeString() {
+        return "Divide(" + left.pseudoCodeString() + ", " + right.pseudoCodeString() + ")";
+    }
 }
