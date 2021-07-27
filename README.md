@@ -164,9 +164,9 @@ The program starts with an empty tree, which can be filled with new nodes. There
 
 Make sure to have IntelliJ installed in your system before attempting to launch this program.
 
-1.- Import to your system the program, one way of doing this is by writing `git clone https://github.com/CC3002-Metodologias/scrabble-vitoco09` in a command line (CMD or Powershell for Windows). If this doesn't work check if you have installed git in your system.
-2.- Open IntelliJ and go to file -> open... and select `scrabble-vitoco09`.
-3.- Inside the project go inside src -> main -> java -> cl.uchile.dcc.scrabble -> gui, this is where the application is stored.
-4.- Right click Scrabble.java and click in `Run ('Scrabble.main()')` or altenatively select Scrabble.java and do Ctrl+Mayus+F10
+1. Import to your system the program, one way of doing this is by writing `git clone https://github.com/CC3002-Metodologias/scrabble-vitoco09` in a command line (CMD or Powershell for Windows). If this doesn't work check if you have installed git in your system.
+2. Open IntelliJ and go to file -> open... and select `scrabble-vitoco09`.
+3. Inside the project go inside src -> main -> java -> cl.uchile.dcc.scrabble -> gui, this is where the application is stored.
+4. Right click Scrabble.java and click in `Run ('Scrabble.main()')` or altenatively select Scrabble.java and do Ctrl+Mayus+F10
 
 With these steps you should be already running the application with no problems.
