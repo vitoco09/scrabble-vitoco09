@@ -17,4 +17,13 @@ public class AndTree extends AbstractTypeTree {
         this.right = right;
         this.setResult(left.getResult().and(right.getResult()));
     }
+
+    /**
+     * pseudoCodeString: Method for printing pseudo-code for a tree.
+     * @return
+     */
+    @Override
+    public String pseudoCodeString() {
+        return "And(" + left.pseudoCodeString() + ", " + right.pseudoCodeString() + ")";
+    }
 }

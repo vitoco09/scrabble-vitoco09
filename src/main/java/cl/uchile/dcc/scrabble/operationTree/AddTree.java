@@ -17,5 +17,13 @@ public class AddTree extends AbstractTypeTree {
         this.right = right;
         this.setResult(left.getResult().add(right.getResult()));
     }
+    /**
+     * pseudoCodeString: Method for printing pseudo-code for a tree.
+     * @return
+     */
+    @Override
+    public String pseudoCodeString() {
+        return "Add(" + left.pseudoCodeString() + ", " + right.pseudoCodeString() + ")";
+    }
 
 }

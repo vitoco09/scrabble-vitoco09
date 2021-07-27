@@ -19,4 +19,12 @@ public class ToIntTree extends AbstractTypeTree {
         this.setResult(component.getResult().toScrabbleInt());
     }
 
+    /**
+     * pseudoCodeString: Method for printing pseudo-code for a tree.
+     * @return
+     */
+    @Override
+    public String pseudoCodeString() {
+        return "ToInt(" + component.pseudoCodeString() + ")";
+    }
 }

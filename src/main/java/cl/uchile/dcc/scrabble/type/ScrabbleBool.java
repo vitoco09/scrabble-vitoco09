@@ -332,4 +332,12 @@ public class ScrabbleBool extends AbstractType {
         }
     }
 
+    /**
+     * pseudoCodeString: Method for printing pseudo-code for a tree.
+     */
+    @Override
+    public String pseudoCodeString() {
+        return "new Bool(" + value + ")";
+    }
+
 }

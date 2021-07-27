@@ -316,4 +316,11 @@ public class ScrabbleString extends AbstractType {
         return null;
     }
 
+    /**
+     * pseudoCodeString: Method for printing pseudo-code for a tree.
+     */
+    @Override
+    public String pseudoCodeString() {
+        return "new String(" + value + ")";
+    }
 }

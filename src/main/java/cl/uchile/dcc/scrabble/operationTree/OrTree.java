@@ -17,4 +17,13 @@ public class OrTree extends AbstractTypeTree {
         this.right = right;
         this.setResult(left.getResult().or(right.getResult()));
     }
+
+    /**
+     * pseudoCodeString: Method for printing pseudo-code for a tree.
+     * @return
+     */
+    @Override
+    public String pseudoCodeString() {
+        return "Or(" + left.pseudoCodeString() + ", " + right.pseudoCodeString() + ")";
+    }
 }

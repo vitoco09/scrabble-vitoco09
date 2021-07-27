@@ -48,4 +48,5 @@ public abstract class AbstractType implements IType {
     public IType getResult() {
         return this;
     }
+
 }

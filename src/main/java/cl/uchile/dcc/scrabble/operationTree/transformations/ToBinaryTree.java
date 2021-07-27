@@ -19,4 +19,12 @@ public class ToBinaryTree extends AbstractTypeTree {
         this.setResult(component.getResult().toScrabbleBinary());
     }
 
+    /**
+     * pseudoCodeString: Method for printing pseudo-code for a tree.
+     * @return
+     */
+    @Override
+    public String pseudoCodeString() {
+        return "ToBinary(" + component.pseudoCodeString() + ")";
+    }
 }

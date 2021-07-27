@@ -17,4 +17,13 @@ public class SubtractTree extends AbstractTypeTree {
         this.right = right;
         this.setResult(left.getResult().subtract(right.getResult()));
     }
+
+    /**
+     * pseudoCodeString: Method for printing pseudo-code for a tree.
+     * @return
+     */
+    @Override
+    public String pseudoCodeString() {
+        return "Subtract(" + left.pseudoCodeString() + ", " + right.pseudoCodeString() + ")";
+    }
 }
