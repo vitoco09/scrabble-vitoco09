@@ -156,6 +156,6 @@ This program also includes a graphical interface for making it easier to create 
 
 The main scene shows some buttons for selecting between operations, transformations and types, elements which are added to an operation tree according to the selected node in screen. There's also a clean button, which can return the tree to its original state as a null, and a pseudo-code button for showing a pseudo-code illustration of the tree.
 
-This graphic interface is powered by JavaFX using IntelliJ. The model is stored inside `type` and `operationTree` folders, while its view and controller are stored inside `gui` and `controller` folders.
+This graphics interface is powered by JavaFX using IntelliJ. The model is stored inside `type` and `operationTree` folders, while its view and controller are stored inside `gui` and `controller` folders.
 
 The program starts with an empty tree, which can be filled with new nodes. There's also the possibility of returning a sole value by setting a type as the main tree instead of an operation or a transformation, but then the program becomes unable to add more nodes because a scrabble type cannot have sons.
