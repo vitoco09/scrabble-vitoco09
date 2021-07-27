@@ -149,3 +149,24 @@ The negation operation was implemented to every *Scrabble* type. For all **Scrab
 ### Class Hierarchy (UML)
 
 ![Class Hierarchy](https://github.com/CC3002-Metodologias/scrabble-vitoco09/blob/main/UMLtarea2.png)
+
+### Graphical Interface
+
+This program also includes a graphical interface for making it easier to create operation trees of Scrabble Types. For inspirational purposes it's included with a background and music.
+
+The main scene shows some buttons for selecting between operations, transformations and types, elements which are added to an operation tree according to the selected node in screen. There's also a clean button, which can return the tree to its original state as a null, and a pseudo-code button for showing a pseudo-code illustration of the tree.
+
+This graphics interface is powered by JavaFX using IntelliJ. The model is stored inside `type` and `operationTree` folders, while its view and controller are stored inside `gui` and `controller` folders.
+
+The program starts with an empty tree, which can be filled with new nodes. There's also the possibility of returning a sole value by setting a type as the main tree instead of an operation or a transformation, but then the program becomes unable to add more nodes because a scrabble type cannot have sons.
+
+## Launch Instructions
+
+Make sure to have IntelliJ installed in your system before attempting to launch this program.
+
+1.- Import to your system the program, one way of doing this is by writing `git clone https://github.com/CC3002-Metodologias/scrabble-vitoco09` in a command line (CMD or Powershell for Windows). If this doesn't work check if you have installed git in your system.
+2.- Open IntelliJ and go to file -> open... and select `scrabble-vitoco09`.
+3.- Inside the project go inside src -> main -> java -> cl.uchile.dcc.scrabble -> gui, this is where the application is stored.
+4.- Right click Scrabble.java and click in `Run ('Scrabble.main()')` or altenatively select Scrabble.java and do Ctrl+Mayus+F10
+
+With these steps you should be already running the application with no problems.
