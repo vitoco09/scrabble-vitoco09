@@ -539,7 +539,7 @@ public class Scrabble extends Application {
   }
 
   /**
-   * playVaporWave: static method for playing V A P O R W A V E in background.
+   * playVaporWave: static method for playing macintosh plus theme in background.
    */
   private static void playVaporWave() {
     String audioFilePath = RESOURCE_PATH + "macintosh.wav";
@@ -550,7 +550,7 @@ public class Scrabble extends Application {
         sound.open(audioInputStream);
         FloatControl gainControl =
                 (FloatControl) sound.getControl(FloatControl.Type.MASTER_GAIN);
-        gainControl.setValue(-20.0f); // Reduce volume by 10 decibels.
+        gainControl.setValue(-20.0f); // Reduce volume by 20 decibels.
         sound.start();
       }
     } catch (LineUnavailableException | UnsupportedAudioFileException | IOException e) {
