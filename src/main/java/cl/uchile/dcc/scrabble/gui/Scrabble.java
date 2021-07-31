@@ -120,12 +120,20 @@ public class Scrabble extends Application {
     window.show();
   }
 
+  /**
+   * setPseudoCodeString: Auxiliary method for setting a new pseudocode in pseudoCodeLabel. Fore readability.
+   * @param pseudoCodeString String with pseudocode
+   */
   private void setPseudoCodeString(String pseudoCodeString) {
     pseudoCodeLabel.setText(pseudoCodeString);
   }
 
   // Buttons
 
+  /**
+   * newOperation: Button for adding a new operation.
+   * @return Button.
+   */
   private @NotNull Button newOperation() {
     var button = new Button("Add Operation");
     button.setLayoutX(70);
@@ -135,6 +143,10 @@ public class Scrabble extends Application {
     return button;
   }
 
+  /**
+   * newTransformation: Button for adding a new transformation.
+   * @return Button.
+   */
   private @NotNull Button newTransformation() {
     var button = new Button("Add Transformation");
     button.setLayoutX(70);
@@ -144,6 +156,10 @@ public class Scrabble extends Application {
     return button;
   }
 
+  /**
+   * newValue: Button for adding a new value.
+   * @return Button.
+   */
   private @NotNull Button newValue() {
     var button = new Button("Add Value");
     button.setLayoutX(70);
@@ -153,6 +169,10 @@ public class Scrabble extends Application {
     return button;
   }
 
+  /**
+   * clearAll: Button for clearing the tree, making it a null object.
+   * @return Button.
+   */
   private @NotNull Button clearAll() {
     var button = new Button("Clear Tree");
     button.setLayoutX(1100);
@@ -166,6 +186,10 @@ public class Scrabble extends Application {
     return button;
   }
 
+  /**
+   * backButton: Helpful button for coming back to main menu from anywhere.
+   * @return Button.
+   */
   private @NotNull Button backButton() {
     var button = new Button("Back");
     button.setFocusTraversable(true);
@@ -173,6 +197,10 @@ public class Scrabble extends Application {
     return button;
   }
 
+  /**
+   * pseudoCode: Button for showing pseudocode of tree in screen.
+   * @return Button.
+   */
   private @NotNull Button pseudoCode() {
     var button = new Button("Show PseudoCode");
     button.setLayoutX(1100);
@@ -182,6 +210,10 @@ public class Scrabble extends Application {
     return button;
   }
 
+  /**
+   * resultButton: Button for returning the result of the tree and showing it on screen.
+   * @return Button.
+   */
   private @NotNull Button resultButton() {
     var button = new Button("Show Result");
     button.setLayoutX(1100);
@@ -196,6 +228,10 @@ public class Scrabble extends Application {
 
   // Operations
 
+  /**
+   * addButton: Button that chooses the addition operation.
+   * @return Button.
+   */
   private @NotNull Button addButton() {
     var button = new Button("Add");
     button.setFocusTraversable(false);
@@ -210,6 +246,10 @@ public class Scrabble extends Application {
     return button;
   }
 
+  /**
+   * subtractButton: Button that chooses the subtraction operation.
+   * @return Button.
+   */
   private @NotNull Button subtractButton() {
     var button = new Button("Subtract");
     button.setFocusTraversable(false);
@@ -224,6 +264,10 @@ public class Scrabble extends Application {
     return button;
   }
 
+  /**
+   * multiplyButton: Button that chooses the multiplication operation.
+   * @return Button.
+   */
   private @NotNull Button multiplyButton() {
     var button = new Button("Multiply");
     button.setFocusTraversable(false);
@@ -238,6 +282,10 @@ public class Scrabble extends Application {
     return button;
   }
 
+  /**
+   * divideButton: Button that chooses the division operation.
+   * @return Button.
+   */
   private @NotNull Button divideButton() {
     var button = new Button("Divide");
     button.setFocusTraversable(false);
@@ -252,6 +300,10 @@ public class Scrabble extends Application {
     return button;
   }
 
+  /**
+   * andButton: Button that chooses the logical conjunction operation.
+   * @return Button.
+   */
   private @NotNull Button andButton() {
     var button = new Button("Logical Conjunction");
     button.setFocusTraversable(false);
@@ -266,6 +318,10 @@ public class Scrabble extends Application {
     return button;
   }
 
+  /**
+   * orButton: Button that chooses the logical disjunction operation.
+   * @return Button.
+   */
   private @NotNull Button orButton() {
     var button = new Button("Logical Disjunction");
     button.setFocusTraversable(false);
@@ -280,6 +336,10 @@ public class Scrabble extends Application {
     return button;
   }
 
+  /**
+   * negateButton: Button that chooses the negation operation.
+   * @return Button.
+   */
   private @NotNull Button negateButton() {
     var button = new Button("Negate");
     button.setFocusTraversable(false);
@@ -296,6 +356,10 @@ public class Scrabble extends Application {
 
   // Transformations
 
+  /**
+   * toStringButton: Button for choosing the toString transformation.
+   * @return Button.
+   */
   private @NotNull Button toStringButton() {
     var button = new Button("To String");
     button.setFocusTraversable(false);
@@ -310,6 +374,10 @@ public class Scrabble extends Application {
     return button;
   }
 
+  /**
+   * toIntButton: Button for choosing the toInt transformation.
+   * @return Button.
+   */
   private @NotNull Button toIntButton() {
     var button = new Button("To Int");
     button.setFocusTraversable(false);
@@ -324,6 +392,10 @@ public class Scrabble extends Application {
     return button;
   }
 
+  /**
+   * toFloatButton: Button for choosing the toFloat transformation.
+   * @return Button.
+   */
   private @NotNull Button toFloatButton() {
     var button = new Button("To Float");
     button.setFocusTraversable(false);
@@ -338,6 +410,10 @@ public class Scrabble extends Application {
     return button;
   }
 
+  /**
+   * toBoolButton: Button for choosing the toBool transformation.
+   * @return Button.
+   */
   private @NotNull Button toBoolButton() {
     var button = new Button("To Boolean");
     button.setFocusTraversable(false);
@@ -352,6 +428,10 @@ public class Scrabble extends Application {
     return button;
   }
 
+  /**
+   * toBinaryButton: Button for choosing the toBinary transformation.
+   * @return Button.
+   */
   private @NotNull Button toBinaryButton() {
     var button = new Button("To Binary");
     button.setFocusTraversable(false);
@@ -368,6 +448,10 @@ public class Scrabble extends Application {
 
   // Values
 
+  /**
+   * stringButton: Button for choosing a string type.
+   * @return Button.
+   */
   private @NotNull Button stringButton() {
     var button = new Button("String");
     button.setFocusTraversable(false);
@@ -382,6 +466,10 @@ public class Scrabble extends Application {
     return button;
   }
 
+  /**
+   * intButton: Button for choosing an int type.
+   * @return Button.
+   */
   private @NotNull Button intButton() {
     var button = new Button("Int");
     button.setFocusTraversable(false);
@@ -396,6 +484,10 @@ public class Scrabble extends Application {
     return button;
   }
 
+  /**
+   * floatButton: Button for choosing a float type.
+   * @return Button.
+   */
   private @NotNull Button floatButton() {
     var button = new Button("Float");
     button.setFocusTraversable(false);
@@ -410,6 +502,10 @@ public class Scrabble extends Application {
     return button;
   }
 
+  /**
+   * boolButton: Button for choosing a boolean type.
+   * @return Button.
+   */
   private @NotNull Button boolButton() {
     var button = new Button("Boolean");
     button.setFocusTraversable(false);
@@ -424,6 +520,10 @@ public class Scrabble extends Application {
     return button;
   }
 
+  /**
+   * binaryButton: Button for choosing a binary type.
+   * @return Button.
+   */
   private @NotNull Button binaryButton() {
     var button = new Button("Binary");
     button.setFocusTraversable(false);
@@ -438,6 +538,9 @@ public class Scrabble extends Application {
     return button;
   }
 
+  /**
+   * playVaporWave: static method for playing V A P O R W A V E in background.
+   */
   private static void playVaporWave() {
     String audioFilePath = RESOURCE_PATH + "macintosh.wav";
     try {
@@ -454,7 +557,4 @@ public class Scrabble extends Application {
       e.printStackTrace();
     }
   }
-
-
-
 }
