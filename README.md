@@ -1,3 +1,5 @@
+this is here for my own personal shame, someday i'll fix this.
+
 # Scrabble
 
 ![http://creativecommons.org/licenses/by/4.0/](https://i.creativecommons.org/l/by/4.0/88x31.png)
